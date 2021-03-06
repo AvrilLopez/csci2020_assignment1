@@ -13,13 +13,13 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.setTitle("Spam Master 3000");
+        primaryStage.setScene(new Scene(root, 700, 500));
 
         //  Prompts user to choose folder
-        DirectoryChooser directoryChooser = new DirectoryChooser();
-        directoryChooser.setInitialDirectory(new File("."));
-        File mainDirectory = directoryChooser.showDialog(primaryStage);
+//        DirectoryChooser directoryChooser = new DirectoryChooser();
+//        directoryChooser.setInitialDirectory(new File("."));
+//        File mainDirectory = directoryChooser.showDialog(primaryStage);
 
 
         primaryStage.show();

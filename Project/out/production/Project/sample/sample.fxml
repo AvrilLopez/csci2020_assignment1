@@ -3,6 +3,53 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<GridPane fx:controller="sample.Controller"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
-</GridPane>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+
+<?import javafx.scene.layout.BorderPane?>
+<BorderPane fx:controller="sample.Controller"
+            xmlns:fx="http://javafx.com/fxml" >
+    <top>
+        <TableView fx:id="tableView">
+            <columns>
+                <TableColumn fx:id="file" text="File"> </TableColumn>
+                <TableColumn fx:id="actualClass" text="Actual Class"> </TableColumn>
+                <TableColumn fx:id="spamProbability" text="Spam Probability"> </TableColumn>
+            </columns>
+        </TableView>
+    </top>
+
+    <left>
+        <GridPane xmlns:fx="http://javafx.com/fxml" alignment="TOP_LEFT" hgap="10" vgap="10" >
+
+            <Label text="Accuracy:" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+            <Label text="Precision:" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+            <TextField id="accuracy" fx:id="accuracy" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <TextField id="precision" fx:id="precision" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+
+        </GridPane>
+    </left>
+
+</BorderPane>
+
+<!--<GridPane fx:controller="sample.Controller"-->
+<!--          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">-->
+
+<!--    <TableView fx:id="tableView" GridPane.columnIndex="0" GridPane.rowIndex="0">-->
+<!--        <columns>-->
+<!--            <TableColumn fx:id="file" text="File"> </TableColumn>-->
+<!--            <TableColumn fx:id="actualClass" text="Actual Class"> </TableColumn>-->
+<!--            <TableColumn fx:id="spamProbability" text="Spam Probability"> </TableColumn>-->
+<!--        </columns>-->
+<!--    </TableView>-->
+
+<!--    <Label text="Accuracy:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>-->
+<!--    <Label text="Precision:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>-->
+
+<!--    <TextField id="accuracy" fx:id="accuracy" GridPane.columnIndex="1" GridPane.rowIndex="1" />-->
+<!--    <TextField id="precision" fx:id="precision" GridPane.columnIndex="1" GridPane.rowIndex="2" />-->
+
+<!--</GridPane>-->
+
