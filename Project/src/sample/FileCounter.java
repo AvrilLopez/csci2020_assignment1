@@ -8,11 +8,15 @@ public class FileCounter{
 
     private Map<String, Integer> trainHamFreq;
     private Map<String, Integer> trainSpamFreq;
+    private Integer numHamFiles;
+    private Integer numSpamFiles;
 
 
     public FileCounter(){
         trainHamFreq = new TreeMap<>();
         trainSpamFreq = new TreeMap<>();
+        this.numHamFiles = 0;
+        this.numSpamFiles = 0;
     }
 
 
@@ -40,6 +44,12 @@ public class FileCounter{
 
 
     private void goThroughWords(File file, Map<String,Integer> trainMap ) throws IOException {
+        if(trainMap == trainHamFreq){
+            this.numHamFiles = this.numHamFiles + 1;
+        } else if (trainMap == trainSpamFreq){
+            this.numSpamFiles = this.numSpamFiles + 1;
+        }
+
 
         if (file.isDirectory()) {
             //parse each file inside the directory
@@ -115,6 +125,9 @@ public class FileCounter{
 
     public Map<String, Integer> getTrainSpamFreq() { return this.trainSpamFreq; }
     public Map<String, Integer> getTrainHamFreq() { return this.trainHamFreq; }
+    public Integer getNumHamFiles(){ return this.numHamFiles; }
+    public Integer getNumSpamFiles(){ return this.numSpamFiles; }
+
 
     // For testing
     public void printTrainSpamFreq() {

@@ -18,41 +18,39 @@ public class Probabilites {
         spamIfWord = new TreeMap<>();
     }
 
-    public void popualteMaps(Map<String, Integer> trainHamFreq, Map<String, Integer> trainSpamFreq) {
-        populateWordInHam(trainHamFreq);
-        populateWordInSpam(trainSpamFreq);
+    public void popualteMaps(Map<String, Integer> trainHamFreq, Integer numHamFiles, Map<String, Integer> trainSpamFreq, Integer numSpamFiles) {
+        populateWordInHam(trainHamFreq, numHamFiles);
+        populateWordInSpam(trainSpamFreq, numSpamFiles);
         populateSpamProb();
 
     }
 
-    private void populateWordInHam(Map<String, Integer> trainHamFreq){
+    private void populateWordInHam(Map<String, Integer> trainHamFreq, Integer numHamFiles){
 
         Set<String> keys = trainHamFreq.keySet();
         Iterator<String> keyIterator = keys.iterator();
-        Integer filesInHam = trainHamFreq.keySet().size();
 
         while(keyIterator.hasNext()){
             String key = keyIterator.next();
             Integer numFiles = trainHamFreq.get(key);
             if(trainHamFreq.get(key) != null) {
-                wordInHam.put(key, (double) numFiles / filesInHam);
+                wordInHam.put(key, (double) numFiles / numHamFiles);
             } else {
                 wordInHam.put(key, (double) 0);
             }
         }
     }
 
-    private void populateWordInSpam(Map<String, Integer> trainSpamFreq){
+    private void populateWordInSpam(Map<String, Integer> trainSpamFreq, Integer numSpamFiles){
 
         Set<String> keys = trainSpamFreq.keySet();
         Iterator<String> keyIterator = keys.iterator();
-        Integer filesInSpam = trainSpamFreq.keySet().size();
 
         while(keyIterator.hasNext()){
             String key = keyIterator.next();
             Integer numFiles = trainSpamFreq.get(key);
             if(trainSpamFreq.get(key) != null) {
-                wordInSpam.put(key,  (double)numFiles/filesInSpam);
+                wordInSpam.put(key,  (double)numFiles/numSpamFiles);
             } else {
                 wordInSpam.put(key, (double) 0);
             }

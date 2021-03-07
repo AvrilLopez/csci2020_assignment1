@@ -34,23 +34,25 @@ public class Controller {
         // Get the folders inside the folders
         File[] content = trainDir.listFiles();
         for (File current : content) {
-            if(current.getName() == "ham" || current.getName() == "ham2"){
+            String fileName = current.getName().substring(0,3);
+            if(fileName.equals("ham") || fileName.equals("Ham")){
                 train.parseFiles(current, "trainHamFreq");
-            } else if (current.getName() == "spam" || current.getName() == "Spam"){
+            } else if (fileName.equals("spa") || fileName.equals("Spa")){
                 train.parseFiles(current, "trainSpamFreq");
             }
         }
 
-
         Map<String, Integer> trainSpamFreq = train.getTrainSpamFreq();
         Map<String, Integer> trainHamFreq = train.getTrainHamFreq();
+        Integer numHamFiles = train.getNumHamFiles();
+        Integer numSpamFiles = train.getNumSpamFiles();
 //         for testing training
-        train.printTrainHamFreq();
-        train.printTrainSpamFreq();
+//        train.printTrainHamFreq();
+//        train.printTrainSpamFreq();
 
 
         Probabilites probs = new Probabilites();
-        probs.popualteMaps(trainHamFreq,trainSpamFreq);
+        probs.popualteMaps(trainHamFreq,numHamFiles,trainSpamFreq, numSpamFiles);
 //         for testing
 //        probs.printSpamProbMap();
 //        probs.printWordInHamMap();
