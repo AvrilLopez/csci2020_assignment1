@@ -25,13 +25,23 @@ public class Controller {
 
     private TableView<TestFile> testFiles;
 
+//    private File testFilesDir;
+//    private Map<String, Double> spamProb;
+
     @FXML
     public void initialize() {
+
+    }
+
+    @FXML
+    public void tableSetUp(File testFilesDir, Map<String, Double> spamProb){
         file.setCellValueFactory(new PropertyValueFactory<>("file"));
         actualClass.setCellValueFactory(new PropertyValueFactory<>("actualClass"));
         spamProbability.setCellValueFactory(new PropertyValueFactory<>("spamProbability"));
-        tableView.setItems(DataSource.getAllTestFiles());
+        tableView.setItems(DataSource.getAllTestFiles(testFilesDir, spamProb));
     }
+
+
 
     // must calculate accuracy and precision
 }

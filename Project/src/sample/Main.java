@@ -14,31 +14,35 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
+        Parent root = loader.load();
+        Controller controller = loader.getController();
         primaryStage.setTitle("Spam Master 3000");
         primaryStage.setScene(new Scene(root, 700, 500));
 
         // Prompts user to choose folders
         DirectoryChooser directoryChooser = new DirectoryChooser();
         directoryChooser.setInitialDirectory(new File("."));
-        File ham = directoryChooser.showDialog(primaryStage);
-        File ham2 = directoryChooser.showDialog(primaryStage);
-        File spam = directoryChooser.showDialog(primaryStage);
+        File trainDir = directoryChooser.showDialog(primaryStage);
+        File testDir = directoryChooser.showDialog(primaryStage);
 
         // populate trainHamFreq and trainSpamFreq
-        Training train = new Training();
+        FileCounter train = new FileCounter();
 
-        try {
-            train.parseHamFiles(ham);
-            train.parseHamFiles(ham2);
-            train.parseSpamFiles(spam);
-        } catch(IOException e){
-            e.printStackTrace();
+        // Get the folders inside the folders
+        File[] content = trainDir.listFiles();
+        for (File current : content) {
+            if(current.getName().substring(0,1) == "h" || current.getName().substring(0,1) == "H"){
+                train.parseFiles(current, "trainHamFreq");
+            } else if (current.getName().substring(0,1) == "s" || current.getName().substring(0,1) == "S"){
+                train.parseFiles(current, "trainSpamFreq");
+            }
         }
+
 
         Map<String, Integer> trainSpamFreq = train.getTrainSpamFreq();
         Map<String, Integer> trainHamFreq = train.getTrainHamFreq();
-//         for testing
+//         for testing training
 //        train.printTrainHamFreq();
 //        train.printTrainSpamFreq();
 
@@ -46,11 +50,16 @@ public class Main extends Application {
         Probabilites probs = new Probabilites();
         probs.popualteMaps(trainHamFreq,trainSpamFreq);
 //         for testing
-//        probs.printSpamProbMap();
+        probs.printSpamProbMap();
 //        probs.printWordInHamMap();
 //        probs.printWordInSpamProbMap();
-        
+
         Map<String, Double> spamProb = probs.getSpamProbMap();
+
+        // Testing
+        controller.tableSetUp(testDir,spamProb);
+
+
 
         primaryStage.show();
     }

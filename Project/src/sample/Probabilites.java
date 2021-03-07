@@ -108,6 +108,7 @@ public class Probabilites {
         Set<String> keys = spamIfWord.keySet();
         Iterator<String> keyIterator = keys.iterator();
         System.out.println("Probabilities of a file being spam if it contains the word.");
+        System.out.println(spamIfWord.keySet().size());
 
         while(keyIterator.hasNext()){
             String key = keyIterator.next();

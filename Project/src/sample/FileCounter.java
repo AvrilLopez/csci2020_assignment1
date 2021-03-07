@@ -16,7 +16,30 @@ public class FileCounter{
     }
 
 
-    public void goThroughWords(File file, Map<String,Integer> trainMap ) throws IOException {
+    public void parseFiles(File file, String trainMap){
+        if(trainMap == "trainHamFreq"){
+            try{
+                goThroughWords(file, trainHamFreq);
+            }catch(FileNotFoundException e){
+                System.err.println("Invalid input directory, data folder not found");
+                e.printStackTrace();
+            }catch(IOException e){
+                e.printStackTrace();
+            }
+        } else if (trainMap == "trainSpamFreq"){
+            try{
+                goThroughWords(file, trainSpamFreq);
+            }catch(FileNotFoundException e){
+                System.err.println("Invalid input directory, data folder not found");
+                e.printStackTrace();
+            }catch(IOException e){
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+    private void goThroughWords(File file, Map<String,Integer> trainMap ) throws IOException {
 
         if (file.isDirectory()) {
             //parse each file inside the directory
@@ -48,7 +71,7 @@ public class FileCounter{
             Set<String> words = wordsInCurrentFile.keySet();
             Iterator<String> wordIterator = words.iterator();
             while (wordIterator.hasNext()) {
-                String key =wordIterator.next();
+                String key = wordIterator.next();
                 countFiles(key, trainMap);
             }
 
@@ -77,17 +100,6 @@ public class FileCounter{
 
 
     public void outputWordCount(){
-        //System.out.println("Saving word counts to file:" + output.getAbsolutePath());
-        //System.out.println("Total words:" + wordCounts.keySet().size());
-
-        /*System.out.println("Ham folder contents \n (word)+(how many files contain this word) ");
-        Set<String> hamWords = trainHamFreq.keySet();
-        Iterator<String> hamIterator = hamWords.iterator();
-        while(hamIterator.hasNext()) {
-            String key = hamIterator.next();
-            int hamCount = trainHamFreq.get(key);
-            System.out.println(key + ": " + hamCount);
-        }*/
 
         System.out.println("Spam folders contents \n (word)+(how many files contain this word) ");
         Set<String> spamWords = trainSpamFreq.keySet();
@@ -101,27 +113,31 @@ public class FileCounter{
 
     }
 
-    //main method
-    public static void main(String[] args) {
+    public Map<String, Integer> getTrainSpamFreq() { return this.trainSpamFreq; }
+    public Map<String, Integer> getTrainHamFreq() { return this.trainHamFreq; }
 
-        FileCounter filesThatContainAWord = new FileCounter();
-        System.out.println("Hello");
-        try{
+    // For testing
+    public void printTrainSpamFreq() {
+        Set<String> keys = trainSpamFreq.keySet();
+        Iterator<String> keyIterator = keys.iterator();
+        System.out.println("TrainSpamFreq:");
 
-            filesThatContainAWord.goThroughWords(new File("../../data/train/spam"), filesThatContainAWord.trainSpamFreq);
-            filesThatContainAWord.goThroughWords(new File("../../data/train/ham"), filesThatContainAWord.trainHamFreq);
-            filesThatContainAWord.goThroughWords(new File("../../data/train/ham2"), filesThatContainAWord.trainHamFreq);
-
-            filesThatContainAWord.outputWordCount();
-
-        }catch(FileNotFoundException e){
-            System.err.println("Invalid input directory, data folder not found");
-            e.printStackTrace();
-        }catch(IOException e){
-            e.printStackTrace();
+        while(keyIterator.hasNext()){
+            String key = keyIterator.next();
+            Integer freq = trainSpamFreq.get(key);
+            System.out.println(key + ": " + freq);
         }
+    }
+    public void printTrainHamFreq() {
+        Set<String> keys = trainHamFreq.keySet();
+        Iterator<String> keyIterator = keys.iterator();
+        System.out.println("TrainHamFreq:");
 
-
+        while(keyIterator.hasNext()){
+            String key = keyIterator.next();
+            Integer freq = trainHamFreq.get(key);
+            System.out.println(key + ": " + freq);
+        }
     }
 
 }
