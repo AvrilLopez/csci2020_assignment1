@@ -46,7 +46,7 @@ public class Controller {
         Map<String, Integer> trainHamFreq = train.getTrainHamFreq();
         Integer numHamFiles = train.getNumHamFiles();
         Integer numSpamFiles = train.getNumSpamFiles();
-//         for testing training
+//         for testing
 //        train.printTrainHamFreq();
 //        train.printTrainSpamFreq();
 
@@ -55,8 +55,7 @@ public class Controller {
         probs.popualteMaps(trainHamFreq,numHamFiles,trainSpamFreq, numSpamFiles);
 //         for testing
 //        probs.printSpamProbMap();
-//        probs.printWordInHamMap();
-//        probs.printWordInSpamProbMap();
+
 
         Map<String, Double> spamProb = probs.getSpamProbMap();
 

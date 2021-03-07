@@ -60,7 +60,7 @@ public class FileCounter{
 
         } else {
             Scanner scanner = new Scanner(file);
-
+            scanner.useDelimiter(" ");
             // creating a map of words in the current file
             Map<String, Integer> wordsInCurrentFile = new TreeMap<>();
 
