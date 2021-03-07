@@ -12,11 +12,10 @@ public class Probabilites {
     private Map<String, Double> spamIfWord;
     private Integer filesInSpam;
 
-    public Probabilites(Map<String, Integer> trainSpamFreq){
+    public Probabilites(){
         wordInHam = new TreeMap<>();
         wordInSpam = new TreeMap<>();
         spamIfWord = new TreeMap<>();
-        this.filesInSpam = trainSpamFreq.keySet().size();
     }
 
     public void popualteMaps(Map<String, Integer> trainHamFreq, Map<String, Integer> trainSpamFreq) {
@@ -34,8 +33,12 @@ public class Probabilites {
 
         while(keyIterator.hasNext()){
             String key = keyIterator.next();
-            Double numFiles = wordInHam.get(key);
-            wordInHam.put(key,  (double)numFiles/filesInHam);
+            Integer numFiles = trainHamFreq.get(key);
+            if(trainHamFreq.get(key) != null) {
+                wordInHam.put(key, (double) numFiles / filesInHam);
+            } else {
+                wordInHam.put(key, (double) 0);
+            }
         }
     }
 
@@ -43,12 +46,16 @@ public class Probabilites {
 
         Set<String> keys = trainSpamFreq.keySet();
         Iterator<String> keyIterator = keys.iterator();
-        Integer filesInHam = trainSpamFreq.keySet().size();
+        Integer filesInSpam = trainSpamFreq.keySet().size();
 
         while(keyIterator.hasNext()){
             String key = keyIterator.next();
-            Double numFiles = wordInSpam.get(key);
-            wordInHam.put(key,  (double)numFiles/filesInSpam);
+            Integer numFiles = trainSpamFreq.get(key);
+            if(trainSpamFreq.get(key) != null) {
+                wordInSpam.put(key,  (double)numFiles/filesInSpam);
+            } else {
+                wordInSpam.put(key, (double) 0);
+            }
         }
     }
 
@@ -60,16 +67,20 @@ public class Probabilites {
             String key = keyIterator.next();
             Double wordInSpamProb = wordInSpam.get(key);
             Double wordInHamProb = wordInHam.get(key);
-            Double spamProb = wordInSpamProb / (wordInSpamProb + wordInHamProb);
-            spamIfWord.put(key, spamProb);
+            if(wordInSpam.get(key) != null && wordInHam.get(key) != null) {
+                Double spamProb = wordInSpamProb / (wordInSpamProb + wordInHamProb);
+                spamIfWord.put(key, spamProb);
+            } else {
+                spamIfWord.put(key, (double) 0);
+            }
         }
     }
 
-    private Map<String, Double> getSpamProbMap() { return this.spamIfWord; }
+    public Map<String, Double> getSpamProbMap() { return this.spamIfWord; }
 
     // for testing purposes:
 
-    private void printWordInHamMap() {
+    public void printWordInHamMap() {
         Set<String> keys = wordInHam.keySet();
         Iterator<String> keyIterator = keys.iterator();
         System.out.println("Probabilities of words appearing in Ham files.");
@@ -81,7 +92,7 @@ public class Probabilites {
         }
     }
 
-    private void printWordInSpamProbMap() {
+    public void printWordInSpamProbMap() {
         Set<String> keys = wordInSpam.keySet();
         Iterator<String> keyIterator = keys.iterator();
         System.out.println("Probabilities of words appearing in Spam files.");
@@ -93,7 +104,7 @@ public class Probabilites {
         }
     }
 
-    private void printSpamProbMap() {
+    public void printSpamProbMap() {
         Set<String> keys = spamIfWord.keySet();
         Iterator<String> keyIterator = keys.iterator();
         System.out.println("Probabilities of a file being spam if it contains the word.");
