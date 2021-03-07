@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../../zulu11.45.27-ca-fx-jdk11.0.10-win_x64/lib" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../../../zulu11.45.27-ca-fx-jdk11.0.10-win_x64/lib" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/../../../zulu11.45.27-ca-fx-jdk11.0.10-win_x64/lib" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../../../zulu11.45.27-ca-fx-jdk11.0.10-win_x64/lib" recursive="false" type="SOURCES" />
+  </library>
+</component>
