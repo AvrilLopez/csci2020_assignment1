@@ -26,38 +26,7 @@ public class Main extends Application {
         File trainDir = directoryChooser.showDialog(primaryStage);
         File testDir = directoryChooser.showDialog(primaryStage);
 
-        // populate trainHamFreq and trainSpamFreq
-        FileCounter train = new FileCounter();
-
-        // Get the folders inside the folders
-        File[] content = trainDir.listFiles();
-        for (File current : content) {
-            if(current.getName().substring(0,1) == "h" || current.getName().substring(0,1) == "H"){
-                train.parseFiles(current, "trainHamFreq");
-            } else if (current.getName().substring(0,1) == "s" || current.getName().substring(0,1) == "S"){
-                train.parseFiles(current, "trainSpamFreq");
-            }
-        }
-
-
-        Map<String, Integer> trainSpamFreq = train.getTrainSpamFreq();
-        Map<String, Integer> trainHamFreq = train.getTrainHamFreq();
-//         for testing training
-//        train.printTrainHamFreq();
-//        train.printTrainSpamFreq();
-
-
-        Probabilites probs = new Probabilites();
-        probs.popualteMaps(trainHamFreq,trainSpamFreq);
-//         for testing
-        probs.printSpamProbMap();
-//        probs.printWordInHamMap();
-//        probs.printWordInSpamProbMap();
-
-        Map<String, Double> spamProb = probs.getSpamProbMap();
-
-        // Testing
-        controller.tableSetUp(testDir,spamProb);
+        controller.initialize(trainDir, testDir);
 
 
 

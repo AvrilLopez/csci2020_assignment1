@@ -25,23 +25,50 @@ public class Controller {
 
     private TableView<TestFile> testFiles;
 
-//    private File testFilesDir;
-//    private Map<String, Double> spamProb;
 
     @FXML
-    public void initialize() {
+    public void initialize(File trainDir, File testDir) {
+        // populate trainHamFreq and trainSpamFreq
+        FileCounter train = new FileCounter();
 
-    }
+        // Get the folders inside the folders
+        File[] content = trainDir.listFiles();
+        for (File current : content) {
+            if(current.getName() == "ham" || current.getName() == "ham2"){
+                train.parseFiles(current, "trainHamFreq");
+            } else if (current.getName() == "spam" || current.getName() == "Spam"){
+                train.parseFiles(current, "trainSpamFreq");
+            }
+        }
 
-    @FXML
-    public void tableSetUp(File testFilesDir, Map<String, Double> spamProb){
-        file.setCellValueFactory(new PropertyValueFactory<>("file"));
+
+        Map<String, Integer> trainSpamFreq = train.getTrainSpamFreq();
+        Map<String, Integer> trainHamFreq = train.getTrainHamFreq();
+//         for testing training
+        train.printTrainHamFreq();
+        train.printTrainSpamFreq();
+
+
+        Probabilites probs = new Probabilites();
+        probs.popualteMaps(trainHamFreq,trainSpamFreq);
+//         for testing
+//        probs.printSpamProbMap();
+//        probs.printWordInHamMap();
+//        probs.printWordInSpamProbMap();
+
+        Map<String, Double> spamProb = probs.getSpamProbMap();
+
+        file.setCellValueFactory(new PropertyValueFactory<>("filename"));
         actualClass.setCellValueFactory(new PropertyValueFactory<>("actualClass"));
         spamProbability.setCellValueFactory(new PropertyValueFactory<>("spamProbability"));
-        tableView.setItems(DataSource.getAllTestFiles(testFilesDir, spamProb));
+        try {
+            tableView.setItems(DataSource.getAllTestFiles(testDir, spamProb));
+        } catch(IOException e){
+            e.printStackTrace();
+        }
+
+        // must calculate accuracy and precision
     }
 
 
-
-    // must calculate accuracy and precision
 }
