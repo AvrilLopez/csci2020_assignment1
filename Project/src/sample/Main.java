@@ -7,20 +7,50 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.DirectoryChooser;
 import java.io.File;
+import java.io.IOException;
+import java.util.Map;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.setTitle("Spam Master 3000");
+        primaryStage.setScene(new Scene(root, 700, 500));
 
-        //  Prompts user to choose folder
+        // Prompts user to choose folders
         DirectoryChooser directoryChooser = new DirectoryChooser();
         directoryChooser.setInitialDirectory(new File("."));
-        File mainDirectory = directoryChooser.showDialog(primaryStage);
+        File ham = directoryChooser.showDialog(primaryStage);
+        File ham2 = directoryChooser.showDialog(primaryStage);
+        File spam = directoryChooser.showDialog(primaryStage);
 
+        // populate trainHamFreq and trainSpamFreq
+        Training train = new Training();
+
+        try {
+            train.parseHamFiles(ham);
+            train.parseHamFiles(ham2);
+            train.parseSpamFiles(spam);
+        } catch(IOException e){
+            e.printStackTrace();
+        }
+
+        Map<String, Integer> trainSpamFreq = train.getTrainSpamFreq();
+        Map<String, Integer> trainHamFreq = train.getTrainHamFreq();
+//         for testing
+//        train.printTrainHamFreq();
+//        train.printTrainSpamFreq();
+
+
+        Probabilites probs = new Probabilites();
+        probs.popualteMaps(trainHamFreq,trainSpamFreq);
+//         for testing
+//        probs.printSpamProbMap();
+//        probs.printWordInHamMap();
+//        probs.printWordInSpamProbMap();
+        
+        Map<String, Double> spamProb = probs.getSpamProbMap();
 
         primaryStage.show();
     }
