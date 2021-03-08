@@ -23,7 +23,9 @@ public class Main extends Application {
         // Prompts user to choose folders
         DirectoryChooser directoryChooser = new DirectoryChooser();
         directoryChooser.setInitialDirectory(new File("."));
+        directoryChooser.setTitle("Select training folder");
         File trainDir = directoryChooser.showDialog(primaryStage);
+        directoryChooser.setTitle("Select testing folder");
         File testDir = directoryChooser.showDialog(primaryStage);
 
         // pass the directories chosen into the controller

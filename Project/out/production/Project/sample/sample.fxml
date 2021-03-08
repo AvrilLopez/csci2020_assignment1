@@ -26,8 +26,8 @@
             <Label text="Accuracy:" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
             <Label text="Precision:" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
 
-            <TextField id="accuracy" fx:id="accuracy" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <TextField id="precision" fx:id="precision" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <TextField id="txtAccuracy" fx:id="txtAccuracy" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <TextField id="txtPrecision" fx:id="txtPrecision" GridPane.columnIndex="2" GridPane.rowIndex="2" />
 
         </GridPane>
     </left>

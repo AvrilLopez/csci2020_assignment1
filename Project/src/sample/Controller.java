@@ -80,19 +80,19 @@ public class Controller {
             Integer numTrueNegatives = 0;
             int numFalsePositives=0;
             int numFiles=0;
-            // must calculate accuracy and precision
+
+
+            // Calculate accuracy and precision
             for (TestFile file : testFiles){
 
-                // in here
-                // Do whatever with each file
-                // getSpamProbCalc() gets the calculated probability in type double
-                if ((file.getSpamProbCalc()>=0.5)&&(file.getActualClass().equals("Spam"))){
+                Double fileSpamProb = file.getSpamProbCalc();
+                if ((fileSpamProb >= 0.5) && (file.getActualClass().equals("Spam"))){
                     numTruePositives++;
                 }
-                if ((file.getSpamProbCalc()<0.5)&&(file.getActualClass().equals("Ham"))){
+                if ((fileSpamProb < 0.5) && (file.getActualClass().equals("Ham"))){
                     numTrueNegatives++;
                 }
-                if ((file.getSpamProbCalc()>=0.5)&&(file.getActualClass().equals("Ham"))){
+                if ((fileSpamProb >= 0.5) && (file.getActualClass().equals("Ham"))){
                     numFalsePositives++;
                 }
                 numFiles++;
@@ -101,12 +101,12 @@ public class Controller {
 
 
             double accuracy=(double)(numTruePositives+numTrueNegatives)/numFiles;
-            System.out.println(accuracy);
             double precision=(double)numTruePositives/(numFalsePositives+numTruePositives);
             DecimalFormat formatter = new DecimalFormat("0.00000");
-            
-            txtAccuracy.setText(String.valueOf(formatter.format(accuracy)));
-            txtPrecision.setText(String.valueOf(formatter.format(precision)));
+
+            // update
+            txtAccuracy.setText(formatter.format(accuracy));
+            txtPrecision.setText(formatter.format(precision));
 
 
         } catch(IOException e){

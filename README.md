@@ -3,7 +3,7 @@
 
 | Group Member               | ID         |
 |:--------------------------:|:----------:|
-| Maria Anashkina            | ---------- |
+| Maria Anashkina            | 100746854  |
 | Avril Lopez van Domselaar  | 100746008  |
 
 When running the program, the user must select two folders; first, the training folder, where spam and ham folders are expected with corresponding emails inside each; and then a testing folder, where spam and ham folders are also expected with corresponding emails inside each.
@@ -27,7 +27,7 @@ For easy running, using any terminal where gradle is installed, navigate to the 
 
 <ins>Credit</ins>
 
-For some of the classes in the program, mostly FileCounter.java and Probabilities.java, some code was taken from the module 5 course examples.
+For some of the classes in the program, mostly FileCounter.java and Probabilities.java, some functions and code structure was taken from the module 5 course examples, to be specific, from WordCount.java: parseFiles(file), isValid(word), coundWord(word).
 
 For the layout of the README we took inspiration from https://meakaakka.medium.com/a-beginners-guide-to-writing-a-kickass-readme-7ac01da88ab3
 
