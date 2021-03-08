@@ -3,7 +3,12 @@ package sample;
 import java.io.*;
 import java.util.*;
 
-
+/**
+ * FileCounter class to count how many files a word appears in.
+ *
+ * The overall layout and iteration structure through the files was taken from
+ * the module 5 examples provided
+ */
 public class FileCounter{
 
     private Map<String, Integer> trainHamFreq;
@@ -19,7 +24,12 @@ public class FileCounter{
         this.numSpamFiles = 0;
     }
 
-
+    /**
+     * Function to call outside the class to populate all frequency maps
+     *
+     * @param file the file or directory to get the words from
+     * @param trainMap either "trainHamFreq" or "trainSpamFreq"
+     */
     public void parseFiles(File file, String trainMap){
         if(trainMap == "trainHamFreq"){
             try{
@@ -43,13 +53,13 @@ public class FileCounter{
     }
 
 
+    /**
+     * Function to populate a frequency map
+     *
+     * @param file the file or directory to get the words from
+     * @param trainMap either trainHamFreq or trainSpamFreq
+     */
     private void goThroughWords(File file, Map<String,Integer> trainMap ) throws IOException {
-        if(trainMap == trainHamFreq){
-            this.numHamFiles = this.numHamFiles + 1;
-        } else if (trainMap == trainSpamFreq){
-            this.numSpamFiles = this.numSpamFiles + 1;
-        }
-
 
         if (file.isDirectory()) {
             //parse each file inside the directory
@@ -59,8 +69,12 @@ public class FileCounter{
             }
 
         } else {
+            if(trainMap == trainHamFreq){
+                this.numHamFiles = this.numHamFiles + 1;
+            } else if (trainMap == trainSpamFreq){
+                this.numSpamFiles = this.numSpamFiles + 1;
+            }
             Scanner scanner = new Scanner(file);
-            scanner.useDelimiter(" ");
             // creating a map of words in the current file
             Map<String, Integer> wordsInCurrentFile = new TreeMap<>();
 
@@ -123,6 +137,7 @@ public class FileCounter{
 
     }
 
+    // getter functions
     public Map<String, Integer> getTrainSpamFreq() { return this.trainSpamFreq; }
     public Map<String, Integer> getTrainHamFreq() { return this.trainHamFreq; }
     public Integer getNumHamFiles(){ return this.numHamFiles; }

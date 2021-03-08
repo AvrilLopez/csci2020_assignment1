@@ -26,6 +26,7 @@ public class Main extends Application {
         File trainDir = directoryChooser.showDialog(primaryStage);
         File testDir = directoryChooser.showDialog(primaryStage);
 
+        // pass the directories chosen into the controller
         controller.initialize(trainDir, testDir);
 
 

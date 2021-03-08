@@ -5,6 +5,12 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
+/**
+ * Probabilites class to calcuate all the probabilities linked to the training.
+ *
+ * The overall layout and iteration structure through the files was taken from
+ * the module 5 examples provided
+ */
 public class Probabilites {
 
     private Map<String, Double> wordInHam;
@@ -18,6 +24,14 @@ public class Probabilites {
         spamIfWord = new TreeMap<>();
     }
 
+    /**
+     * Function to call outside the class to populate all probability maps
+     *
+     * @param trainHamFreq Map of words and number of Ham files it appears in
+     * @param numHamFiles number of Ham files
+     * @param trainSpamFreq Map of words and number of Spam files it appears in
+     * @param numSpamFiles number of Spam files
+     */
     public void popualteMaps(Map<String, Integer> trainHamFreq, Integer numHamFiles, Map<String, Integer> trainSpamFreq, Integer numSpamFiles) {
         populateWordInHam(trainHamFreq, numHamFiles);
         populateWordInSpam(trainSpamFreq, numSpamFiles);
@@ -25,6 +39,12 @@ public class Probabilites {
 
     }
 
+    /**
+     * Function to populate the probability the word appears in a Ham file map
+     *
+     * @param trainHamFreq Map of words and number of Ham files it appears in
+     * @param numHamFiles number of Ham files
+     */
     private void populateWordInHam(Map<String, Integer> trainHamFreq, Integer numHamFiles){
 
         Set<String> keys = trainHamFreq.keySet();
@@ -41,6 +61,12 @@ public class Probabilites {
         }
     }
 
+    /**
+     * Function to populate the probability the word appears in a Spam file map
+     *
+     * @param trainSpamFreq Map of words and number of Spam files it appears in
+     * @param numSpamFiles number of Spam files
+     */
     private void populateWordInSpam(Map<String, Integer> trainSpamFreq, Integer numSpamFiles){
 
         Set<String> keys = trainSpamFreq.keySet();
@@ -57,23 +83,32 @@ public class Probabilites {
         }
     }
 
+    /**
+     * Function to populate the probability that a file is Spam given
+     * it contains a word map
+     */
     private void populateSpamProb(){
         Set<String> keys = wordInSpam.keySet();
         Iterator<String> keyIterator = keys.iterator();
 
+        // iterate over the probability the word appears in a Spam file map
         while(keyIterator.hasNext()){
             String key = keyIterator.next();
             Double wordInSpamProb = wordInSpam.get(key);
             Double wordInHamProb = wordInHam.get(key);
+            // calculate the probability
             if(wordInSpam.get(key) != null && wordInHam.get(key) != null) {
                 Double spamProb = wordInSpamProb / (wordInSpamProb + wordInHamProb);
                 spamIfWord.put(key, spamProb);
+            } else if(wordInSpam.get(key) != null && wordInHam.get(key) == null) {
+                spamIfWord.put(key, (double) 1);
             } else {
                 spamIfWord.put(key, (double) 0);
             }
         }
     }
 
+    // getter function
     public Map<String, Double> getSpamProbMap() { return this.spamIfWord; }
 
     // for testing purposes:

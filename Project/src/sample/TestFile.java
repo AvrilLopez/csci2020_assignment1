@@ -1,3 +1,7 @@
+/**
+ * TestFile class provided in the assignment
+ */
+
 package sample;
 import java.text.DecimalFormat;
 
@@ -13,11 +17,10 @@ public class TestFile {
     }
 
     public String getFilename(){ return this.filename; }
-    public double getSpamProbability(){ return this.spamProbability; }
-    public String getSpamProbRounded(){
+    public String getSpamProbability(){
         DecimalFormat df = new DecimalFormat("0.00000");
-        return df.format(this.spamProbability);
-    }
+        return df.format(this.spamProbability); }
+    public double getSpamProbCalc(){ return this.spamProbability; }
     public String getActualClass(){ return this.actualClass;}
     public void setFilename(String value) { this.filename = value; }
     public void setSpamProbability(double val){ this.spamProbability = val; }
