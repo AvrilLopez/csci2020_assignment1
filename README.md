@@ -13,11 +13,13 @@ After that, the program goes through the emails in the training folder and gener
 Screenshots
 
 
-Tech/framework used and Built with
+Framework used / built with
+
 We used IntelliJ to layout, organize and code the program.
 And we used gradle to create an easier way to run it for anyone downloading it.
 
 Installation / How to use?
+
 If people like your project they’ll want to learn how they can use it. To do so include step by step guide to use your project.
 
 
