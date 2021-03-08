@@ -13,7 +13,7 @@ After that, the program goes through the emails in the training folder and gener
 
 <ins>Screenshots</ins>
 
-
+![Alt text](screenshot.jpg?raw=true "Screenshot")
 
 <ins>Framework used / built with</ins>
 
