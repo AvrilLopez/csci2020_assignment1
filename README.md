@@ -3,7 +3,7 @@
 
 | Group Member               | ID         |
 |:--------------------------:|:----------:|
-| Maria Anashkina            | 100746854  |
+| Mariya Anashkina            | 100746854  |
 | Avril Lopez van Domselaar  | 100746008  |
 
 When running the program, the user must select two folders; first, the training folder, where spam and ham folders are expected with corresponding emails inside each; and then a testing folder, where spam and ham folders are also expected with corresponding emails inside each.
