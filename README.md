@@ -20,8 +20,8 @@ And we used gradle to create an easier way to run it for anyone downloading it.
 
 Installation / How to use?
 
-If people like your project they’ll want to learn how they can use it. To do so include step by step guide to use your project.
-
 
 Credits
+For some of the classes in the program, mostly those that go through files, some code was taken from the module 5 course examples.
+For the layout of the README we took inspiration from https://meakaakka.medium.com/a-beginners-guide-to-writing-a-kickass-readme-7ac01da88ab3
 
