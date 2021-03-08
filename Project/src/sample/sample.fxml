@@ -7,9 +7,9 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TableColumn?>
 
+
 <?import javafx.scene.layout.BorderPane?>
-<BorderPane fx:controller="sample.Controller"
-            xmlns:fx="http://javafx.com/fxml" >
+<BorderPane fx:controller="sample.Controller"  xmlns:fx="http://javafx.com/fxml"  stylesheets="style.css">
     <top>
         <TableView fx:id="tableView">
             <columns>
@@ -23,8 +23,8 @@
     <left>
         <GridPane xmlns:fx="http://javafx.com/fxml" alignment="TOP_LEFT" hgap="10" vgap="10" >
 
-            <Label text="Accuracy:" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-            <Label text="Precision:" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+            <Label id="label" text="Accuracy:" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+            <Label id="label" text="Precision:" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
 
             <TextField id="txtAccuracy" fx:id="txtAccuracy" GridPane.columnIndex="2" GridPane.rowIndex="1" />
             <TextField id="txtPrecision" fx:id="txtPrecision" GridPane.columnIndex="2" GridPane.rowIndex="2" />

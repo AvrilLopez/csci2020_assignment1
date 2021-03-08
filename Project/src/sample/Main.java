@@ -17,8 +17,11 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
         Parent root = loader.load();
         Controller controller = loader.getController();
+
         primaryStage.setTitle("Spam Master 3000");
-        primaryStage.setScene(new Scene(root, 700, 500));
+        Scene scene = new Scene(root, 700, 500);
+//        scene.getStylesheets().add(getClass().getResource("Login.css").toExternalForm());
+        primaryStage.setScene(scene);
 
         // Prompts user to choose folders
         DirectoryChooser directoryChooser = new DirectoryChooser();
