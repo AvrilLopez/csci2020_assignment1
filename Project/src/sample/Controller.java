@@ -8,6 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import java.io.*;
 
+import java.text.DecimalFormat;
 import java.util.Map;
 
 public class Controller {
@@ -20,9 +21,9 @@ public class Controller {
     @FXML
     private TableColumn spamProbability;
     @FXML
-    private TextField accuracy;
+    private TextField txtAccuracy;
     @FXML
-    private TextField precision;
+    private TextField txtPrecision;
 
     private TableView<TestFile> testFiles;
 
@@ -68,6 +69,8 @@ public class Controller {
         file.setCellValueFactory(new PropertyValueFactory<>("filename"));
         actualClass.setCellValueFactory(new PropertyValueFactory<>("actualClass"));
         spamProbability.setCellValueFactory(new PropertyValueFactory<>("spamProbability"));
+
+
         try {
             // go through the test files, calculate the probability and populate the table
             ObservableList<TestFile> testFiles = DataSource.getAllTestFiles(testDir, spamProb);
@@ -75,20 +78,41 @@ public class Controller {
 
             Integer numTruePositives = 0;
             Integer numTrueNegatives = 0;
-
+            int numFalsePositives=0;
+            int numFiles=0;
             // must calculate accuracy and precision
             for (TestFile file : testFiles){
 
                 // in here
                 // Do whatever with each file
                 // getSpamProbCalc() gets the calculated probability in type double
+                if ((file.getSpamProbCalc()>=0.5)&&(file.getActualClass().equals("Spam"))){
+                    numTruePositives++;
+                }
+                if ((file.getSpamProbCalc()<0.5)&&(file.getActualClass().equals("Ham"))){
+                    numTrueNegatives++;
+                }
+                if ((file.getSpamProbCalc()>=0.5)&&(file.getActualClass().equals("Ham"))){
+                    numFalsePositives++;
+                }
+                numFiles++;
 
             }
+
+
+            double accuracy=(double)(numTruePositives+numTrueNegatives)/numFiles;
+            System.out.println(accuracy);
+            double precision=(double)numTruePositives/(numFalsePositives+numTruePositives);
+            DecimalFormat formatter = new DecimalFormat("0.00000");
+            
+            txtAccuracy.setText(String.valueOf(formatter.format(accuracy)));
+            txtPrecision.setText(String.valueOf(formatter.format(precision)));
 
 
         } catch(IOException e){
             e.printStackTrace();
         }
+
 
 
     }
