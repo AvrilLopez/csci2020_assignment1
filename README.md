@@ -20,8 +20,10 @@ And we used gradle to create an easier way to run it for anyone downloading it.
 
 Installation / How to use?
 
+For easy running, using any terminal where gradle is installed, navigate to the Project folder in the Repository and run gradle build.
 
-Credits
+Credit
+
 For some of the classes in the program, mostly those that go through files, some code was taken from the module 5 course examples.
 For the layout of the README we took inspiration from https://meakaakka.medium.com/a-beginners-guide-to-writing-a-kickass-readme-7ac01da88ab3
 
