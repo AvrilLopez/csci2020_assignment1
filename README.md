@@ -11,7 +11,7 @@ When running the program, the user must select two folders; first, the training 
 After that, the program goes through the emails in the training folder and generates appropiate probability maps, to then go through the emials in the test folder and calculate the probability of each being spam or not.
 
 
-<ins>Screenshots</ins>
+<ins>Screenshot</ins>
 
 ![Alt text](screenshot.jpg?raw=true "Screenshot")
 
@@ -27,7 +27,7 @@ For easy running, using any terminal where gradle is installed, navigate to the 
 
 <ins>Credit</ins>
 
-For some of the classes in the program, mostly those that go through files, some code was taken from the module 5 course examples.
+For some of the classes in the program, mostly FileCounter.java and Probabilities.java, some code was taken from the module 5 course examples.
 
 For the layout of the README we took inspiration from https://meakaakka.medium.com/a-beginners-guide-to-writing-a-kickass-readme-7ac01da88ab3
 

@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -69,12 +70,27 @@ public class Controller {
         spamProbability.setCellValueFactory(new PropertyValueFactory<>("spamProbability"));
         try {
             // go through the test files, calculate the probability and populate the table
-            tableView.setItems(DataSource.getAllTestFiles(testDir, spamProb));
+            ObservableList<TestFile> testFiles = DataSource.getAllTestFiles(testDir, spamProb);
+            tableView.setItems(testFiles);
+
+            Integer numTruePositives = 0;
+            Integer numTrueNegatives = 0;
+
+            // must calculate accuracy and precision
+            for (TestFile file : testFiles){
+
+                // in here
+                // Do whatever with each file
+                // getSpamProbCalc() gets the calculated probability in type double
+
+            }
+
+
         } catch(IOException e){
             e.printStackTrace();
         }
 
-        // must calculate accuracy and precision
+
     }
 
 
