@@ -1,13 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Project:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Project_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/csci2020_assignment1.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/csci2020_assignment1.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/lib.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Project.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Project/sample/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/sample/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project/sample/DataSource.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/sample/DataSource.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project/sample/FileCounter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/sample/FileCounter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Project/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/sample/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project/sample/Probabilites.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/sample/Probabilites.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project/sample/StringManipulation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/sample/StringManipulation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project/sample/TestFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/sample/TestFile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project/sample/Trainer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/sample/Trainer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/sample/sample.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/FileCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/FileCounter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Probabilites.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Probabilites.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/sample.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../csci2020_assignment1.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/csci2020_assignment1/sample/Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/csci2020_assignment1/sample/DataSource.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/csci2020_assignment1/sample/FileCounter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/csci2020_assignment1/sample/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/csci2020_assignment1/sample/Probabilites.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/csci2020_assignment1/sample/StringManipulation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/csci2020_assignment1/sample/TestFile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/csci2020_assignment1/sample/Trainer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/csci2020_assignment1/sample/sample.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../screenshot.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../screenshot.jpg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -152,10 +190,12 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="project.structure.last.edited" value="SDKs" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
   </component>
@@ -186,7 +226,7 @@
       <Port>5050</Port>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application">
-      <option name="ALTERNATIVE_JRE_PATH" value="azul-15" />
+      <option name="ALTERNATIVE_JRE_PATH" value="azul-11 (3)" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="sample.Main" />
       <module name="Project" />
@@ -249,6 +289,8 @@
       <option name="presentableId" value="Default" />
       <updated>1359379246138</updated>
       <workItem from="1359379250712" duration="1302000" />
+      <workItem from="1615254270967" duration="59000" />
+      <workItem from="1615254369578" duration="17000" />
     </task>
     <servers />
   </component>
@@ -284,6 +326,9 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
