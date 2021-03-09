@@ -1,5 +1,29 @@
+<<<<<<< HEAD
 .label {
     -fx-padding: 10px;
     -fx-font-family: sans-serif;
     -fx-font-size: 14px;
 }
+=======
+.label{
+    -fx-font-size: 14px;
+    -fx-padding: 10px;
+    -fx-text-fill: white;
+}
+
+#labels {
+    -fx-font-size: 17px;
+}
+
+.root {
+    -fx-base: #595959;
+    -fx-font-family: "Courier New";
+    -fx-font-size: 14px;
+    -fx-background: derive(-fx-base,20%);
+    -fx-control-inner-background: derive(-fx-base,95%);
+    -fx-control-inner-background-alt: derive(-fx-control-inner-background,-2%);
+
+}
+
+
+>>>>>>> 9552ec42a13d14270aaf6937159dcb9d687700de

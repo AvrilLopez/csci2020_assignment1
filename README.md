@@ -3,7 +3,7 @@
 
 | Group Member               | ID         |
 |:--------------------------:|:----------:|
-| Maria Anashkina            | 100746854  |
+| Mariya Anashkina            | 100746854  |
 | Avril Lopez van Domselaar  | 100746008  |
 
 When running the program, the user must select two folders; first, the training folder, where spam and ham folders are expected with corresponding emails inside each; and then a testing folder, where spam and ham folders are also expected with corresponding emails inside each.
@@ -19,11 +19,14 @@ After that, the program goes through the emails in the training folder and gener
 
 We used IntelliJ to layout, organize and code the program.
 
-And we used gradle to create an easier way to run it for anyone downloading it.
+And we used the IntelliJ artifact to create an executable jar file.
+
 
 <ins>Installation / How to use?</ins>
 
-For easy running, using any terminal where gradle is installed, navigate to the Project folder in the Repository and run gradle build.
+For easy running, run the Project.jar file in the repository.
+
+Otherwise, using any terminal, starting from the repository folder, navigate to Project/out/production/Project and run: java sample.Main
 
 <ins>Credit</ins>
 

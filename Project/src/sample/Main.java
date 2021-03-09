@@ -19,13 +19,19 @@ public class Main extends Application {
         Controller controller = loader.getController();
 
         primaryStage.setTitle("Spam Master 3000");
+<<<<<<< HEAD
         Scene scene = new Scene(root, 700, 500);
 //        scene.getStylesheets().add(getClass().getResource("Login.css").toExternalForm());
         primaryStage.setScene(scene);
+=======
+        Scene scene = new Scene(root, 800, 505);
+        primaryStage.setScene(scene);
+        scene.getStylesheets().add(Main.class.getResource("style.css").toExternalForm());
+>>>>>>> 9552ec42a13d14270aaf6937159dcb9d687700de
 
         // Prompts user to choose folders
         DirectoryChooser directoryChooser = new DirectoryChooser();
-        directoryChooser.setInitialDirectory(new File("."));
+        directoryChooser.setInitialDirectory(new File("../"));
         directoryChooser.setTitle("Select training folder");
         File trainDir = directoryChooser.showDialog(primaryStage);
         directoryChooser.setTitle("Select testing folder");
