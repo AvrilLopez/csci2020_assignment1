@@ -103,8 +103,6 @@ public class FileCounter{
     }
 
 
-
-
     private boolean isValidWord(String word){
         String allLetters = "^[a-zA-Z]+$";
         // returns true if the word is composed by only letters otherwise returns false;
@@ -143,29 +141,5 @@ public class FileCounter{
     public Integer getNumHamFiles(){ return this.numHamFiles; }
     public Integer getNumSpamFiles(){ return this.numSpamFiles; }
 
-
-    // For testing
-    public void printTrainSpamFreq() {
-        Set<String> keys = trainSpamFreq.keySet();
-        Iterator<String> keyIterator = keys.iterator();
-        System.out.println("TrainSpamFreq:");
-
-        while(keyIterator.hasNext()){
-            String key = keyIterator.next();
-            Integer freq = trainSpamFreq.get(key);
-            System.out.println(key + ": " + freq);
-        }
-    }
-    public void printTrainHamFreq() {
-        Set<String> keys = trainHamFreq.keySet();
-        Iterator<String> keyIterator = keys.iterator();
-        System.out.println("TrainHamFreq:");
-
-        while(keyIterator.hasNext()){
-            String key = keyIterator.next();
-            Integer freq = trainHamFreq.get(key);
-            System.out.println(key + ": " + freq);
-        }
-    }
 
 }

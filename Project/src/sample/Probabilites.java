@@ -111,42 +111,4 @@ public class Probabilites {
     // getter function
     public Map<String, Double> getSpamProbMap() { return this.spamIfWord; }
 
-    // for testing purposes:
-
-    public void printWordInHamMap() {
-        Set<String> keys = wordInHam.keySet();
-        Iterator<String> keyIterator = keys.iterator();
-        System.out.println("Probabilities of words appearing in Ham files.");
-
-        while(keyIterator.hasNext()){
-            String key = keyIterator.next();
-            Double prob = wordInHam.get(key);
-            System.out.println(key + ": " + prob);
-        }
-    }
-
-    public void printWordInSpamProbMap() {
-        Set<String> keys = wordInSpam.keySet();
-        Iterator<String> keyIterator = keys.iterator();
-        System.out.println("Probabilities of words appearing in Spam files.");
-
-        while(keyIterator.hasNext()){
-            String key = keyIterator.next();
-            Double prob = wordInSpam.get(key);
-            System.out.println(key + ": " + prob);
-        }
-    }
-
-    public void printSpamProbMap() {
-        Set<String> keys = spamIfWord.keySet();
-        Iterator<String> keyIterator = keys.iterator();
-        System.out.println("Probabilities of a file being spam if it contains the word.");
-        System.out.println(spamIfWord.keySet().size());
-
-        while(keyIterator.hasNext()){
-            String key = keyIterator.next();
-            Double spamProb = spamIfWord.get(key);
-            System.out.println(key + ": " + spamProb);
-        }
-    }
 }
